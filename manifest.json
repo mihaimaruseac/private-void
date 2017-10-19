@@ -1,0 +1,18 @@
+{
+	"manifest_version": 2,
+	"minimum_chrome_version": "42",
+	"name": "Private Void",
+	"version": "0.0.4.2",
+	"description": "Script to ignore and/or poke fun at Pardus spammers",
+	"icons": {},
+	"author": "Mith/Numbers Mc Gee",
+	"content_scripts": [
+		{
+			"matches": ["*://chat.pardus.at/chattext.php*", "file://*t.html", "*://forum.pardus.at/index.php?showtopic*", "file://*m.html"],
+			"js": ["script.js"],
+			"all_frames": true,
+			"run_at": "document_end",
+			"all_frames": true
+		}
+	]
+}
