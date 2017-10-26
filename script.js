@@ -5,6 +5,7 @@
 // @author      Mith/Numbers Mc Gee
 // @include     *://chat.pardus.at/chattext.php*
 // @include     *://forum.pardus.at/index.php?showtopic*
+// @include     *://*.pardus.at/options.php
 // @version     0.0.4.2
 // @grant       none
 // ==/UserScript==
@@ -60,14 +61,7 @@ function replaceText(el, text, chat, forum) {
   }
 }
 
-function main() {
-  var isChat = window.location.href.indexOf("chat") !== -1;
-  var isForum = window.location.href.indexOf("forum") !== -1;
-
-  if (!isChat && !isForum) {
-    exit("This script is run where it should not");
-  }
-
+function doHidingUsers(isChat, isForum) {
   for (var i = 0; i < pilotRepls.length; i++) {
     var els = document.querySelectorAll('span a[href="' +
         "javascript:sendmsg('" +
@@ -91,6 +85,22 @@ function main() {
         }
       }
     }
+  }
+}
+
+function doOptionsPage() {
+  alert('options');
+}
+
+function main() {
+  var isChat = window.location.href.indexOf("chat") !== -1;
+  var isForum = window.location.href.indexOf("forum") !== -1;
+  var isOptions = window.location.href.indexOf("options") !== -1;
+
+  if (isOptions) {
+    doOptionsPage();
+  } else if (isChat || isForum) {
+    doHidingUsers(isChat, isForum);
   }
 }
 
