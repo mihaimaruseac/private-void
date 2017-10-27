@@ -90,10 +90,31 @@ function doHidingUsers(isChat, isForum) {
 
 function doOptionsPage() {
   alert('options');
-  var formEl = document.createElement("div"); // TODO: make it form
-  var txt = document.createTextNode("MM was here"); // TODO: from here on we replace with actual content
-  formEl.appendChild(txt);
+  var formEl = document.createElement('form');
+  formEl.setAttribute('action', 'options.php');
+  formEl.setAttribute('method', 'post');
+
+  var tableEl = document.createElement('table');
+  tableEl.setAttribute('style', 'background:url("http://static.pardus.at/img/stdhq/bgd.gif")');
+  tableEl.setAttribute('width', '100%');
+  tableEl.setAttribute('align', 'center');
+  tableEl.setAttribute('cellpadding', '3');
+  formEl.appendChild(tableEl);
+
+  var tbodyEl = document.createElement('tbody');
+  tableEl.appendChild(tbodyEl);
+
+  var headerTrEl = document.createElement('tr');
+  headerTrEl.innerHTML = '<th>Private Void Options</th>';
+  tbodyEl.appendChild(headerTrEl);
+
+  var tmp = document.createElement('tr'); // TODO: here is a tmp, replace with actual options
+  tmp.innerHTML = '<td>TMP: Remove me and adapt me</td>';
+  tbodyEl.appendChild(tmp);
+
   var ptr = document.querySelector('form');
+  ptr.parentNode.nextSibling.nextSibling.appendChild(document.createElement('br'));
+  ptr.parentNode.nextSibling.nextSibling.appendChild(document.createElement('br'));
   ptr.parentNode.nextSibling.nextSibling.appendChild(formEl);
   alert('done');
 }
