@@ -40,7 +40,7 @@ function setName(name, chat, forum) {
 
 function replaceText(el, text, chat, forum) {
   if (chat) {
-    el = el.nextSibling; // text is close by;
+    el = el.nextSibling; // text is close by
     el.textContent = ':\n' + text;
 
     // cleanup in case there are emotes on the line
