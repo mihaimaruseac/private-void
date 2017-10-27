@@ -90,6 +90,12 @@ function doHidingUsers(isChat, isForum) {
 
 function doOptionsPage() {
   alert('options');
+  var formEl = document.createElement("div"); // TODO: make it form
+  var txt = document.createTextNode("MM was here"); // TODO: from here on we replace with actual content
+  formEl.appendChild(txt);
+  var ptr = document.querySelector('form');
+  ptr.parentNode.nextSibling.nextSibling.appendChild(formEl);
+  alert('done');
 }
 
 function main() {
