@@ -108,7 +108,85 @@ function doOptionsPage() {
   headerTrEl.innerHTML = '<th>Private Void Options</th>';
   tbodyEl.appendChild(headerTrEl);
 
-  var tmp = document.createElement('tr'); // TODO: here is a tmp, replace with actual options
+  for (var i = 0; i < pilotRepls.length; i++) {
+    var row = document.createElement('tr');
+    row.setAttribute('pv_selector', 'pv');
+    var def = document.createElement('table');
+
+    if (i % 2) {
+      def.setAttribute('style', 'background:url("http://static.pardus.at/img/stdhq/bg_yellow.gif")');
+    } else {
+      def.setAttribute('style', 'background:url("http://static.pardus.at/img/stdhq/bg_red.gif")');
+    }
+    def.setAttribute('width', '100%');
+    def.setAttribute('align', 'center');
+    def.setAttribute('cellpadding', '3');
+
+    var name = document.createElement('tr');
+    var nameLbl = document.createElement('td');
+    nameLbl.innerHTML = 'Name of pilot to alter:';
+    name.appendChild(nameLbl);
+    var nameInputField = document.createElement('td');
+    var nameInput = document.createElement('input');
+    nameInput.setAttribute('type', 'text');
+    nameInput.setAttribute('name', 'pv_name');
+    nameInput.setAttribute('value', pilotRepls[i].name);
+    nameInput.setAttribute('maxlength', '20');
+    nameInput.setAttribute('size', '20');
+    nameInput.setAttribute('style', 'vertical-align:middle');
+    nameInput.setAttribute('title', 'Enter name of pilot to alter');
+    nameInputField.appendChild(nameInput);
+    name.appendChild(nameInputField);
+    def.appendChild(name);
+
+    var newName = document.createElement('tr');
+    var newNameLbl = document.createElement('td');
+    newNameLbl.innerHTML = 'New name of pilot:';
+    newName.appendChild(newNameLbl);
+    var newNameInputField = document.createElement('td');
+    var newNameInput = document.createElement('input');
+    newNameInput.setAttribute('type', 'text');
+    newNameInput.setAttribute('name', 'pv_repl_name');
+    newNameInput.setAttribute('value', pilotRepls[i].rname);
+    newNameInput.setAttribute('maxlength', '20');
+    newNameInput.setAttribute('size', '20');
+    newNameInput.setAttribute('style', 'vertical-align:middle');
+    newNameInput.setAttribute('title', 'Enter altered name of pilot');
+    newNameInputField.appendChild(newNameInput);
+    newName.appendChild(newNameInputField);
+    def.appendChild(newName);
+
+    var newLinesLbl = document.createElement('tr');
+    var newLinesLblField = document.createElement('td');
+    newLinesLblField.setAttribute('colspan', '2');
+    newLinesLblField.innerHTML = 'Replace the text of pilot with one of the following lines:';
+    newLinesLbl.appendChild(newLinesLblField);
+    def.appendChild(newLinesLbl);
+
+    var newLinesInputField = document.createElement('td');
+    newLinesInputField.setAttribute('colspan', '2');
+    var newLinesInput = document.createElement('textarea');
+    newLinesInput.setAttribute('name', 'pv_repl_lines');
+    newLinesInput.setAttribute('cols', '70');
+    newLinesInput.setAttribute('rows', '3');
+    newLinesInput.setAttribute('style', 'font-family: Helvetica, Arial, sans-serif;background-color:#00001C; color:#D0D1D9; font-size:11px; width:320px');
+    newLinesInput.setAttribute('title', 'Enter replacement lines for pilot');
+    var s = "";
+    for (var j = 0; j < pilotRepls[i].replacements.length; j++) {
+      s += pilotRepls[i].replacements[j] + '\n';
+    }
+    var txt = document.createTextNode(s);
+    newLinesInput.appendChild(txt);
+    newLinesInputField.appendChild(newLinesInput);
+    def.appendChild(newLinesInputField);
+
+    row.appendChild(def);
+    tbodyEl.appendChild(row);
+  }
+  alert('ok');
+
+  // TODO: this can get removed soon
+  var tmp = document.createElement('tr');
   tmp.innerHTML = '<td>TMP: Remove me and adapt me</td>';
   tbodyEl.appendChild(tmp);
 
