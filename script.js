@@ -11,6 +11,7 @@
 // ==/UserScript==
 
 // TODO: don't forget to trim() each field before storing here
+// TODO: load these at start of script if they are not loaded
 var pilotRepls = [
   {name: "Leona", rname: "", replacements: []},
   {name: "Ygramul The Many", rname: "", replacements: []},
