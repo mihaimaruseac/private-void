@@ -89,7 +89,6 @@ function doHidingUsers(isChat, isForum) {
 }
 
 function doOptionsPage() {
-  alert('options');
   var formEl = document.createElement('form');
   formEl.setAttribute('action', 'options.php');
   formEl.setAttribute('method', 'post');
@@ -116,7 +115,6 @@ function doOptionsPage() {
   ptr.parentNode.nextSibling.nextSibling.appendChild(document.createElement('br'));
   ptr.parentNode.nextSibling.nextSibling.appendChild(document.createElement('br'));
   ptr.parentNode.nextSibling.nextSibling.appendChild(formEl);
-  alert('done');
 }
 
 function main() {
