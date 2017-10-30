@@ -185,10 +185,7 @@ function doOptionsPage() {
   }
   alert('ok');
 
-  // TODO: this can get removed soon
-  var tmp = document.createElement('tr');
-  tmp.innerHTML = '<td>TMP: Remove me and adapt me</td>';
-  tbodyEl.appendChild(tmp);
+  // TODO: save, load, delete
 
   var ptr = document.querySelector('form');
   ptr.parentNode.nextSibling.nextSibling.appendChild(document.createElement('br'));
