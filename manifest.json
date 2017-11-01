@@ -9,7 +9,7 @@
 	"content_scripts": [
 		{
 			"matches": ["*://chat.pardus.at/chattext.php*", "*://forum.pardus.at/index.php?showtopic*"],
-			"js": ["script.js"],
+			"js": ["Private_Void.user.js"],
 			"all_frames": true,
 			"run_at": "document_end",
 			"all_frames": true
