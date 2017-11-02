@@ -5,4 +5,4 @@ Script to ignore and/or poke fun at Pardus spammers.
 
 My first browser extension/GreaseMonkey script.
 
-WIP.
+Almost done, need some more customization. But it works now.
