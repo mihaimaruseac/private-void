@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name        Private Void
-// @namespace   NumbersMcGee
+// @namespace   PardusPrivateVoidMathman
 // @description Script to ignore and/or poke fun at Pardus spammers
-// @author      Mith/Numbers Mc Gee
+// @author      Mathman
 // @include     *://chat.pardus.at/chattext.php*
 // @include     *://forum.pardus.at/index.php?showtopic*
 // @include     *://*.pardus.at/options.php

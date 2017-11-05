@@ -5,7 +5,7 @@
 	"version": "0.0.4.2",
 	"description": "Script to ignore and/or poke fun at Pardus spammers",
 	"icons": {},
-	"author": "Mith/Numbers Mc Gee",
+	"author": "Mathman",
 	"content_scripts": [
 		{
 			"matches": ["*://chat.pardus.at/chattext.php*", "*://forum.pardus.at/index.php?showtopic*"],
