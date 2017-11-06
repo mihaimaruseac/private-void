@@ -12,6 +12,7 @@
 
 // TODO: don't forget to trim() each field before storing here
 // TODO: load these at start of script if they are not loaded
+// TODO: how to check them? maybe cookies?
 var pilotRepls = [
   {name: "Leona", rname: "", replacements: []},
   {name: "Ygramul The Many", rname: "", replacements: []},
@@ -90,6 +91,7 @@ function doHidingUsers(isChat, isForum) {
 }
 
 function doOptionsPage() {
+  // TODO: this look ugly, break it up
   var formEl = document.createElement('form');
   formEl.setAttribute('action', 'options.php');
   formEl.setAttribute('method', 'post');
@@ -139,6 +141,7 @@ function doOptionsPage() {
     name.appendChild(nameInputField);
     def.appendChild(name);
 
+    // TODO: add delete icon, maybe?
     var newName = document.createElement('tr');
     var newNameLbl = document.createElement('td');
     newNameLbl.innerHTML = 'New name of pilot:';
