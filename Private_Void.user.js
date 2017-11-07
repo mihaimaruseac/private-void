@@ -90,12 +90,12 @@ function doHidingUsers(isChat, isForum) {
   }
 }
 
-function createPilotReplacementForm(i) {
+function createPilotReplacementForm(ix) {
   var row = document.createElement('tr');
   row.setAttribute('pv_selector', 'pv');
   var def = document.createElement('table');
 
-  if (i % 2) {
+  if (ix % 2) {
     def.setAttribute('style', 'background:url("http://static.pardus.at/img/stdhq/bg_yellow.gif")');
   } else {
     def.setAttribute('style', 'background:url("http://static.pardus.at/img/stdhq/bg_red.gif")');
@@ -112,7 +112,7 @@ function createPilotReplacementForm(i) {
   var nameInput = document.createElement('input');
   nameInput.setAttribute('type', 'text');
   nameInput.setAttribute('name', 'pv_name');
-  nameInput.setAttribute('value', pilotRepls[i].name);
+  nameInput.setAttribute('value', pilotRepls[ix].name);
   nameInput.setAttribute('maxlength', '20');
   nameInput.setAttribute('size', '20');
   nameInput.setAttribute('style', 'vertical-align:middle');
@@ -130,7 +130,7 @@ function createPilotReplacementForm(i) {
   var newNameInput = document.createElement('input');
   newNameInput.setAttribute('type', 'text');
   newNameInput.setAttribute('name', 'pv_repl_name');
-  newNameInput.setAttribute('value', pilotRepls[i].rname);
+  newNameInput.setAttribute('value', pilotRepls[ix].rname);
   newNameInput.setAttribute('maxlength', '20');
   newNameInput.setAttribute('size', '20');
   newNameInput.setAttribute('style', 'vertical-align:middle');
@@ -155,8 +155,8 @@ function createPilotReplacementForm(i) {
   newLinesInput.setAttribute('style', 'font-family: Helvetica, Arial, sans-serif;background-color:#00001C; color:#D0D1D9; font-size:11px; width:320px');
   newLinesInput.setAttribute('title', 'Enter replacement lines for pilot');
   var s = "";
-  for (var j = 0; j < pilotRepls[i].replacements.length; j++) {
-    s += pilotRepls[i].replacements[j] + '\n';
+  for (var j = 0; j < pilotRepls[ix].replacements.length; j++) {
+    s += pilotRepls[ix].replacements[j] + '\n';
   }
   var txt = document.createTextNode(s);
   newLinesInput.appendChild(txt);
