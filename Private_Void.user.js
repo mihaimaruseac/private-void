@@ -90,9 +90,7 @@ function doHidingUsers(isChat, isForum) {
   }
 }
 
-function createPilotReplacementForm(ix) {
-  var row = document.createElement('tr');
-  row.setAttribute('pv_selector', 'pv');
+function createPilotReplacementFormTable(ix) {
   var def = document.createElement('table');
 
   if (ix % 2) {
@@ -103,7 +101,10 @@ function createPilotReplacementForm(ix) {
   def.setAttribute('width', '100%');
   def.setAttribute('align', 'center');
   def.setAttribute('cellpadding', '3');
+  return def;
+}
 
+function createPilotReplacementFormNameField(ix) {
   var name = document.createElement('tr');
   var nameLbl = document.createElement('td');
   nameLbl.innerHTML = 'Name of pilot to alter:';
@@ -119,9 +120,10 @@ function createPilotReplacementForm(ix) {
   nameInput.setAttribute('title', 'Enter name of pilot to alter');
   nameInputField.appendChild(nameInput);
   name.appendChild(nameInputField);
-  def.appendChild(name);
+  return name;
+}
 
-  // TODO: add delete icon, maybe?
+function createPilotReplacementFormNewNameField(ix) {
   var newName = document.createElement('tr');
   var newNameLbl = document.createElement('td');
   newNameLbl.innerHTML = 'New name of pilot:';
@@ -137,8 +139,10 @@ function createPilotReplacementForm(ix) {
   newNameInput.setAttribute('title', 'Enter altered name of pilot');
   newNameInputField.appendChild(newNameInput);
   newName.appendChild(newNameInputField);
-  def.appendChild(newName);
+  return newName;
+}
 
+function setupPilotReplacementNewLinesField(def, ix) {
   var newLinesLbl = document.createElement('tr');
   var newLinesLblField = document.createElement('td');
   newLinesLblField.setAttribute('colspan', '2');
@@ -155,14 +159,23 @@ function createPilotReplacementForm(ix) {
   newLinesInput.setAttribute('style', 'font-family: Helvetica, Arial, sans-serif;background-color:#00001C; color:#D0D1D9; font-size:11px; width:320px');
   newLinesInput.setAttribute('title', 'Enter replacement lines for pilot');
   var s = "";
-  for (var j = 0; j < pilotRepls[ix].replacements.length; j++) {
-    s += pilotRepls[ix].replacements[j] + '\n';
+  for (var i = 0; i < pilotRepls[ix].replacements.length; i++) {
+    s += pilotRepls[ix].replacements[i] + '\n';
   }
   var txt = document.createTextNode(s);
   newLinesInput.appendChild(txt);
   newLinesInputField.appendChild(newLinesInput);
   def.appendChild(newLinesInputField);
+}
 
+function createPilotReplacementForm(ix) {
+  var row = document.createElement('tr');
+  row.setAttribute('pv_selector', 'pv');
+  var def = createPilotReplacementFormTable(ix);
+  // TODO: add delete icon, maybe?
+  def.appendChild(createPilotReplacementFormNameField(ix));
+  def.appendChild(createPilotReplacementFormNewNameField(ix));
+  setupPilotReplacementNewLinesField(def, ix);
   row.appendChild(def);
   return row;
 }
