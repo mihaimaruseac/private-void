@@ -169,6 +169,26 @@ function createPilotReplacementForm(ix) {
   return row;
 }
 
+function createDeleteNote() {
+  var tr = document.createElement('tr');
+  var label = document.createElement('td');
+  label.innerHTML = "Note: To delete an entry, leave all of its fields blank";
+  tr.appendChild(label);
+  return tr;
+}
+
+function createSaveButton() {
+  var tr = document.createElement('tr');
+  var saveField = document.createElement('td');
+  var save = document.createElement('input');
+  save.setAttribute('type', 'submit');
+  save.setAttribute('name', 'pv_save');
+  save.setAttribute('value', 'Save');
+  saveField.appendChild(save);
+  tr.appendChild(saveField);
+  return tr;
+}
+
 function doOptionsPage() {
   var formEl = document.createElement('form');
   formEl.setAttribute('action', 'options.php');
@@ -192,24 +212,8 @@ function doOptionsPage() {
     tbodyEl.appendChild(createPilotReplacementForm(i));
   }
 
-  // TODO: extract these to own function
-  var tr = document.createElement('tr');
-  var label = document.createElement('td');
-  label.innerHTML = "*To delete an entry, leave all fields blank";
-  tr.appendChild(label);
-  tbodyEl.appendChild(tr);
-  var tr1 = document.createElement('tr');
-  var saveField = document.createElement('td');
-  var save = document.createElement('input');
-  save.setAttribute('type', 'submit');
-  save.setAttribute('name', 'pv_save');
-  save.setAttribute('value', 'Save');
-  saveField.appendChild(save);
-  tr1.appendChild(saveField);
-  tbodyEl.appendChild(tr1);
-
-  // TODO: save, load, delete
-  alert('ok');
+  tbodyEl.appendChild(createDeleteNote());
+  tbodyEl.appendChild(createSaveButton());
 
   var ptr = document.querySelector('form');
   ptr.parentNode.nextSibling.nextSibling.appendChild(document.createElement('br'));
