@@ -162,7 +162,6 @@ function createPilotReplacementForm(ix) {
   var row = document.createElement('tr');
   row.setAttribute('pv_selector', 'pv');
   var def = createPilotReplacementFormTable(ix);
-  // TODO: add delete icon, maybe?
   def.appendChild(createPilotReplacementFormNameField(ix));
   def.appendChild(createPilotReplacementFormNewNameField(ix));
   setupPilotReplacementNewLinesField(def, ix);
