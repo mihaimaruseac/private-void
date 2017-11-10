@@ -133,29 +133,29 @@ function createPilotReplacementFormNewNameField(ix) {
 }
 
 function setupPilotReplacementNewLinesField(def, ix) {
-  var newLinesLbl = document.createElement('tr');
-  var newLinesLblField = document.createElement('td');
-  newLinesLblField.setAttribute('colspan', '2');
-  newLinesLblField.innerHTML = 'Replace the text of pilot with one of the following lines:';
-  newLinesLbl.appendChild(newLinesLblField);
-  def.appendChild(newLinesLbl);
+  var tr = document.createElement('tr');
+  var td = document.createElement('td');
+  td.setAttribute('colspan', '2');
+  td.innerHTML = 'Replace the text of pilot with one of the following lines:';
+  tr.appendChild(td);
+  def.appendChild(tr);
 
-  var newLinesInputField = document.createElement('td');
-  newLinesInputField.setAttribute('colspan', '2');
-  var newLinesInput = document.createElement('textarea');
-  newLinesInput.setAttribute('name', 'pv_repl_lines');
-  newLinesInput.setAttribute('cols', '70');
-  newLinesInput.setAttribute('rows', '3');
-  newLinesInput.setAttribute('style', 'font-family: Helvetica, Arial, sans-serif;background-color:#00001C; color:#D0D1D9; font-size:11px; width:320px');
-  newLinesInput.setAttribute('title', 'Enter replacement lines for pilot');
+  var inpField = document.createElement('td');
+  inpField.setAttribute('colspan', '2');
+  var ta = document.createElement('textarea');
+  ta.setAttribute('name', 'pv_repl_lines');
+  ta.setAttribute('cols', '70');
+  ta.setAttribute('rows', '3');
+  ta.setAttribute('style', 'font-family: Helvetica, Arial, sans-serif;background-color:#00001C; color:#D0D1D9; font-size:11px; width:320px');
+  ta.setAttribute('title', 'Enter replacement lines for pilot');
   var s = "";
   for (var i = 0; i < pilotRepls[ix].replacements.length; i++) {
     s += pilotRepls[ix].replacements[i] + '\n';
   }
   var txt = document.createTextNode(s);
-  newLinesInput.appendChild(txt);
-  newLinesInputField.appendChild(newLinesInput);
-  def.appendChild(newLinesInputField);
+  ta.appendChild(txt);
+  inpField.appendChild(ta);
+  def.appendChild(inpField);
 }
 
 function createPilotReplacementForm(ix) {
