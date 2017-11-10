@@ -24,6 +24,25 @@ var pilotRepls = [
   {name: "Neferpitou", rname: "", replacements: ["asdf", "xyz"]},
 ];
 
+function pvSaveConfiguration() {
+  var els = document.querySelectorAll('tr[pv_selector="pv"]');
+  var new_repls = [];
+  // TODO: check for empty -> delete
+  for (var i = 0; i < els.length; i++) {
+    new_repls[i] = {};
+
+    var el = els[i].firstChild.firstChild;
+    new_repls[i].name = el.firstChild.nextSibling.firstChild.value; // TODO: trim
+
+    el = el.nextSibling;
+    new_repls[i].rname = el.firstChild.nextSibling.firstChild.value; // TODO: trim
+
+    el = el.nextSibling.nextSibling;
+    new_repls[i].replacements = el.firstChild.value.split('\n');
+  }
+  alert('all saved');
+}
+
 function nameNode(el, chat, forum) {
   if (chat) {
     return el.parentNode.parentNode;
@@ -184,6 +203,7 @@ function createSaveButton() {
   save.setAttribute('type', 'submit');
   save.setAttribute('name', 'pv_save');
   save.setAttribute('value', 'Save');
+  save.addEventListener('click', pvSaveConfiguration);
   saveField.appendChild(save);
   tr.appendChild(saveField);
   return tr;
