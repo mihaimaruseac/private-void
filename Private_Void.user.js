@@ -171,7 +171,6 @@ function createPilotReplacementForm(ix) {
 }
 
 function doOptionsPage() {
-  // TODO: this look ugly, break it up
   var formEl = document.createElement('form');
   formEl.setAttribute('action', 'options.php');
   formEl.setAttribute('method', 'post');
