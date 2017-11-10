@@ -14,14 +14,14 @@
 // TODO: load these at start of script if they are not loaded
 // TODO: how to check them? maybe cookies?
 var pilotRepls = [
-  {name: "Leona", rname: "", replacements: []},
-  {name: "Ygramul The Many", rname: "", replacements: []},
-  {name: "Sogno", rname: "Soggy", replacements: []},
-  {name: "Kimber Tambo", rname: "", replacements: ["asdf"]},
-  {name: "Fapi Lul", rname: "", replacements: ["x"]},
-  {name: "Boots", rname: "Bootsies", replacements: ["x", "y", "z"]},
-  {name: "Chesh", rname: "Cheese", replacements: []},
-  {name: "Neferpitou", rname: "", replacements: ["asdf", "xyz"]},
+  {name: "Leona", rname: "Fucktard", replacements: ["1", "2", "3", "4"]},
+  //{name: "Ygramul The Many", rname: "", replacements: []},
+  //{name: "Sogno", rname: "Soggy", replacements: []},
+  //{name: "Kimber Tambo", rname: "", replacements: ["asdf"]},
+  //{name: "Fapi Lul", rname: "", replacements: ["x"]},
+  //{name: "Boots", rname: "Bootsies", replacements: ["x", "y", "z"]},
+  //{name: "Chesh", rname: "Cheese", replacements: []},
+  //{name: "Neferpitou", rname: "", replacements: ["asdf", "xyz"]},
 ];
 
 function pvSaveConfiguration() {
@@ -191,7 +191,7 @@ function createPilotReplacementForm(ix) {
 function createDeleteNote() {
   var tr = document.createElement('tr');
   var label = document.createElement('td');
-  label.innerHTML = "Note: To delete an entry, leave all of its fields blank";
+  label.innerHTML = "Note: To delete an entry, leave the name field blank";
   tr.appendChild(label);
   return tr;
 }
