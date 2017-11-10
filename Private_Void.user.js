@@ -104,42 +104,32 @@ function createPilotReplacementFormTable(ix) {
   return def;
 }
 
+function createSimpleNamedField(labelText, inputName, inputValue) {
+  var tr = document.createElement('tr');
+  var label = document.createElement('td');
+  label.innerHTML = labelText;
+  tr.appendChild(label);
+  var inputField = document.createElement('td');
+  var input = document.createElement('input');
+  input.setAttribute('type', 'text');
+  input.setAttribute('name', inputName);
+  input.setAttribute('value', inputValue);
+  input.setAttribute('size', '20');
+  input.setAttribute('style', 'vertical-align:middle');
+  input.setAttribute('title', 'Enter altered name of pilot');
+  inputField.appendChild(input);
+  tr.appendChild(inputField);
+  return tr;
+}
+
 function createPilotReplacementFormNameField(ix) {
-  var name = document.createElement('tr');
-  var nameLbl = document.createElement('td');
-  nameLbl.innerHTML = 'Name of pilot to alter:';
-  name.appendChild(nameLbl);
-  var nameInputField = document.createElement('td');
-  var nameInput = document.createElement('input');
-  nameInput.setAttribute('type', 'text');
-  nameInput.setAttribute('name', 'pv_name');
-  nameInput.setAttribute('value', pilotRepls[ix].name);
-  nameInput.setAttribute('maxlength', '20');
-  nameInput.setAttribute('size', '20');
-  nameInput.setAttribute('style', 'vertical-align:middle');
-  nameInput.setAttribute('title', 'Enter name of pilot to alter');
-  nameInputField.appendChild(nameInput);
-  name.appendChild(nameInputField);
-  return name;
+  return createSimpleNamedField('Name of pilot to alter:',
+      'pv_name', pilotRepls[ix].name);
 }
 
 function createPilotReplacementFormNewNameField(ix) {
-  var newName = document.createElement('tr');
-  var newNameLbl = document.createElement('td');
-  newNameLbl.innerHTML = 'New name of pilot:';
-  newName.appendChild(newNameLbl);
-  var newNameInputField = document.createElement('td');
-  var newNameInput = document.createElement('input');
-  newNameInput.setAttribute('type', 'text');
-  newNameInput.setAttribute('name', 'pv_repl_name');
-  newNameInput.setAttribute('value', pilotRepls[ix].rname);
-  newNameInput.setAttribute('maxlength', '20');
-  newNameInput.setAttribute('size', '20');
-  newNameInput.setAttribute('style', 'vertical-align:middle');
-  newNameInput.setAttribute('title', 'Enter altered name of pilot');
-  newNameInputField.appendChild(newNameInput);
-  newName.appendChild(newNameInputField);
-  return newName;
+  return createSimpleNamedField('New name of pilot:',
+      'pv_repl_name', pilotRepls[ix].rname);
 }
 
 function setupPilotReplacementNewLinesField(def, ix) {
